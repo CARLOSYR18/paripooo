@@ -1,16 +1,29 @@
-/* Barra de navegación moderna */
-nav {
+/* Reset y fuente */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f7f7f7;
+    color: #222;
+}
+
+/* Barra de navegación */
+header {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.navbar {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.07);
-    padding: 10px 0;
     gap: 10px;
+    padding: 16px 0;
 }
-
-nav a {
+.navbar a {
     background: #fff;
     color: #222;
     border: 2px solid #e0e0e0;
@@ -22,45 +35,158 @@ nav a {
     box-shadow: 0 1px 3px rgba(0,0,0,0.04);
     transition: background 0.2s, color 0.2s, border 0.2s, transform 0.2s;
 }
-
-nav a:hover,
-nav a.active {
+.navbar a:hover,
+.navbar a.active {
     background: #222;
     color: #fff;
     border-color: #222;
     transform: scale(1.05);
 }
 
-/* Responsive para móvil */
-@media (max-width: 600px) {
-    nav {
+/* Hero principal */
+.hero {
+    min-height: 60vh;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://i.postimg.cc/90ZwGWYJ/487980805-2698878613834013-1754575642248618034-n.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 60px 20px 40px 20px;
+}
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 18px;
+}
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+.hero .botones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+.hero .boton {
+    background: #ecc94b;
+    color: #1a365d;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 32px;
+    font-size: 1.1em;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    text-decoration: none;
+}
+.hero .boton:hover {
+    background: #ffe066;
+    color: #222;
+    transform: scale(1.04);
+}
+
+/* Secciones generales */
+section {
+    padding: 40px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+section h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 18px;
+    color: #1a365d;
+}
+
+/* Cards de programas */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+}
+.card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 24px;
+    width: 260px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+.card:hover {
+    transform: translateY(-6px) scale(1.03);
+}
+.card h3 {
+    color: #2c5282;
+    margin-bottom: 10px;
+}
+
+/* Examen de admisión modal */
+#modal-examen {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+}
+#modal-examen .modal-content {
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px 24px;
+    max-width: 400px;
+    width: 95vw;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    text-align: left;
+    position: relative;
+}
+#modal-examen .close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 1.5em;
+    color: #222;
+    cursor: pointer;
+}
+#modal-examen h2 {
+    color: #1a365d;
+    margin-bottom: 18px;
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 28px 10px;
+    margin-top: 40px;
+    font-size: 1em;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .navbar {
         flex-direction: column;
         gap: 6px;
-        padding: 6px 0;
+        padding: 10px 0;
     }
-    nav a {
-        width: 98%;
-        font-size: 1em;
-        margin: 0 auto;
-        padding: 12px 0;
+    .cards {
+        flex-direction: column;
+        gap: 18px;
     }
-}
-
-/* Botón destacado tipo UTP */
-.button-destacado {
-    display: inline-block;
-    background: #e6007a;
-    color: #fff;
-    font-weight: bold;
-    border-radius: 8px;
-    padding: 12px 28px;
-    border: none;
-    font-size: 1.1em;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    transition: background 0.2s, transform 0.2s;
-}
-
-.button-destacado:hover {
-    background: #b8005c;
-    transform: scale(1.04);
+    .hero h1 {
+        font-size: 1.5em;
+    }
+    section {
+        padding: 28px 8px;
+    }
 }
