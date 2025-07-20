@@ -1,3 +1,230 @@
+/* FAQ masivo y bloques de relleno */
+.faq-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+}
+.faq-item {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  padding: 18px 20px;
+  width: 320px;
+  margin-bottom: 10px;
+  color: #222;
+}
+.faq-item h3 {
+  color: #2c5282;
+  margin-bottom: 8px;
+  font-size: 1.1em;
+}
+
+/* Bloques de relleno institucional */
+.relleno-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+}
+.relleno-card {
+  background: #f9fafb;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  padding: 18px 20px;
+  width: 320px;
+  margin-bottom: 10px;
+  color: #1a365d;
+}
+.relleno-card h3 {
+  color: #ecc94b;
+  margin-bottom: 8px;
+  font-size: 1.1em;
+}
+
+/* Testimonios y egresados */
+.testimonios, .egresados-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+}
+.testimonio, .egresado-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  padding: 18px 20px;
+  width: 320px;
+  text-align: center;
+}
+.testimonio img, .egresado-card img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+.testimonio span {
+  display: block;
+  margin-top: 8px;
+  color: #2c5282;
+  font-size: 0.95em;
+}
+
+/* Noticias, logros, actividades, publicaciones */
+.noticias, .logros-lista, .actividades-grid, .publicaciones-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+}
+.noticia, .actividad-card, .lab-card, .bolsa-card, .evento, .ranking-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  padding: 18px 20px;
+  width: 320px;
+  margin-bottom: 10px;
+}
+.noticia h3, .actividad-card h3, .lab-card h3, .bolsa-card h3, .evento h3, .ranking-card {
+  color: #2c5282;
+  margin-bottom: 8px;
+  font-size: 1.1em;
+}
+
+/* Tabs de facultades */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.tab-btn {
+  background: #f7f7f7;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px 8px 0 0;
+  padding: 10px 24px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #2c5282;
+  transition: background 0.2s, color 0.2s;
+}
+.tab-btn.active {
+  background: #ecc94b;
+  color: #1a365d;
+}
+.tab-content {
+  display: none;
+  background: #fff;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  padding: 18px 20px;
+  margin-bottom: 18px;
+}
+.tab-content.active {
+  display: block;
+}
+
+/* Rankings y estadísticas */
+.estadisticas-grid {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+.estadistica {
+  background: #f9fafb;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  padding: 18px 20px;
+  width: 180px;
+  text-align: center;
+  color: #1a365d;
+  font-size: 1.2em;
+}
+.estadistica span {
+  font-size: 2em;
+  font-weight: bold;
+  color: #ecc94b;
+}
+.ranking-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+}
+.ranking-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  padding: 18px 20px;
+  width: 220px;
+  text-align: center;
+  color: #2c5282;
+  font-weight: bold;
+}
+
+/* Videos institucionales */
+.videos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+}
+.videos-grid iframe {
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+}
+
+/* Calendario académico */
+.calendario {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 18px auto;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+.calendario th, .calendario td {
+  padding: 12px 8px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+}
+.calendario th {
+  background: #ecc94b;
+  color: #1a365d;
+  font-weight: bold;
+}
+.calendario tr:last-child td {
+  border-bottom: none;
+}
+
+/* Galería institucional */
+.galeria-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+.galeria-grid img {
+  width: 180px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+}
+
+@media (max-width: 900px) {
+  .cards, .faq-list, .relleno-grid, .testimonios, .egresados-grid, .noticias, .logros-lista, .actividades-grid, .publicaciones-lista, .ranking-lista, .videos-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .estadisticas-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 /* Reset y fuente */
 body {
     margin: 0;
