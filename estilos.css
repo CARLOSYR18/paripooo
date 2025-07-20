@@ -1,3 +1,9 @@
+/* Limitar tamaño de todas las imágenes para evitar que se vean gigantes */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 /* FAQ masivo y bloques de relleno */
 .faq-list {
   display: flex;
