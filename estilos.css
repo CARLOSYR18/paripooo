@@ -1,4 +1,4 @@
-/* Barra de navegación moderna y adaptable */
+/* Barra de navegación moderna */
 nav {
     display: flex;
     flex-wrap: wrap;
@@ -6,8 +6,8 @@ nav {
     align-items: center;
     background: #fff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.07);
-    padding: 8px 0;
-    gap: 8px;
+    padding: 10px 0;
+    gap: 10px;
 }
 
 nav a {
@@ -15,8 +15,7 @@ nav a {
     color: #222;
     border: 2px solid #e0e0e0;
     border-radius: 12px;
-    padding: 8px 18px;
-    margin: 0;
+    padding: 10px 18px;
     font-size: 1em;
     text-decoration: none;
     font-weight: 500;
@@ -45,4 +44,23 @@ nav a.active {
         margin: 0 auto;
         padding: 12px 0;
     }
+}
+
+/* Botón destacado tipo UTP */
+.button-destacado {
+    display: inline-block;
+    background: #e6007a;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 12px 28px;
+    border: none;
+    font-size: 1.1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.button-destacado:hover {
+    background: #b8005c;
+    transform: scale(1.04);
 }
