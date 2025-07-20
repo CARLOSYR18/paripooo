@@ -64,10 +64,12 @@ img {
   text-align: center;
 }
 .testimonio img, .egresado-card img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin-bottom: 10px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+    margin-bottom: 10px;
 }
 .testimonio span {
   display: block;
@@ -214,22 +216,56 @@ img {
   justify-content: center;
 }
 .galeria-grid img {
-  width: 180px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    margin: 0 auto;
+}
+
+/* Control de imágenes grandes en contenido */
+.hero img, .campus-card img, section > img {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+/* Imágenes de convenios/aliados */
+.convenios img {
+    max-width: 150px;
+    width: 100%;
+    height: auto;
+    margin: 10px;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+.convenios img:hover {
+    filter: grayscale(0%);
 }
 
 @media (max-width: 900px) {
-  .cards, .faq-list, .relleno-grid, .testimonios, .egresados-grid, .noticias, .logros-lista, .actividades-grid, .publicaciones-lista, .ranking-lista, .videos-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-  .estadisticas-grid {
-    flex-direction: column;
-    align-items: center;
-  }
+    .cards, .faq-list, .relleno-grid, .testimonios, .egresados-grid, .noticias, .logros-lista, .actividades-grid, .publicaciones-lista, .ranking-lista, .videos-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .estadisticas-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    /* Ajustes responsive para imágenes */
+    .card img {
+        max-width: 100%;
+    }
+    .galeria-grid img {
+        width: 100%;
+        max-width: 300px;
+    }
+    .convenios img {
+        max-width: 120px;
+    }
 }
 /* Reset y fuente */
 body {
@@ -238,6 +274,20 @@ body {
     font-family: 'Segoe UI', Arial, sans-serif;
     background: #f7f7f7;
     color: #222;
+}
+
+/* Control de imágenes global */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Logo específico */
+.logo {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
 }
 
 /* Barra de navegación */
@@ -357,6 +407,15 @@ section h2 {
 .card h3 {
     color: #2c5282;
     margin-bottom: 10px;
+}
+
+/* Imágenes en cards */
+.card img {
+    max-width: 260px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 15px auto;
+    border-radius: 8px;
 }
 
 /* Examen de admisión modal */
