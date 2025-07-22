@@ -4,17 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carreras - Instituto Tecnológico Superior</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="carreras.css">
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Estilos personalizados integrados */
+        body {
+            font-family: 'Inter', sans-serif;
+            @apply bg-gray-50; /* Fondo general más claro */
+        }
+
+        /* Hero Section para Carreras */
+        .careers-hero {
+            @apply relative py-20 md:py-32 text-white text-center overflow-hidden;
+            background-image: url('https://placehold.co/1920x600/2a3f5a/ffffff?text=Estudiantes+Exitosos'); /* Imagen de fondo para el hero */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .careers-hero::before {
+            content: '';
+            @apply absolute inset-0 bg-blue-900 opacity-70; /* Overlay oscuro para el texto */
+        }
+        .careers-hero > .container {
+            @apply relative z-10;
+        }
+        .hero-title {
+            @apply text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 drop-shadow-lg;
+        }
+        .hero-subtitle {
+            @apply text-lg md:text-xl max-w-3xl mx-auto mb-8 drop-shadow-md;
+        }
+        .hero-stats {
+            @apply flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12 mt-10;
+        }
+        .stat-item {
+            @apply bg-white bg-opacity-20 backdrop-filter backdrop-blur-sm p-6 rounded-xl shadow-lg flex flex-col items-center border border-white border-opacity-30;
+        }
+        .stat-number {
+            @apply text-4xl md:text-5xl font-bold text-yellow-300;
+        }
+        .stat-label {
+            @apply text-sm md:text-base mt-2;
+        }
+
+        /* Sección de Carreras */
+        .careers-container {
+            @apply py-16 bg-white;
+        }
+        .careers-title {
+            @apply text-center mb-12;
+        }
+        .careers-title h2 {
+            @apply text-3xl md:text-4xl font-bold text-blue-800 mb-4;
+        }
+        .careers-title p {
+            @apply text-lg text-gray-600 max-w-3xl mx-auto;
+        }
+
+        /* Tarjetas de Carrera - Nuevo Diseño */
+        .career-card-new {
+            @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl;
+        }
+        .career-card-image {
+            @apply w-full h-48 object-cover; /* Ajusta la altura de la imagen */
+        }
+        .career-card-content {
+            @apply p-4;
+        }
+        .career-card-content h3 {
+            @apply text-xl font-semibold text-gray-800 mb-2;
+        }
+        .career-card-content p {
+            @apply text-gray-600 text-sm mb-2;
+        }
+        .career-card-duration {
+            @apply text-gray-500 text-xs mb-4;
+        }
+        .career-card-link {
+            @apply text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center space-x-1 transition duration-300;
+        }
+        .career-card-link i {
+            @apply text-xs;
+        }
+
+        /* Sección de Beneficios */
+        .benefits-section {
+            @apply bg-blue-50 py-16 text-center;
+        }
+        .benefits-section h3 {
+            @apply text-3xl md:text-4xl font-bold text-blue-800 mb-10;
+        }
+        .benefit-card {
+            @apply bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-xl;
+        }
+        .benefit-icon {
+            @apply text-blue-600 text-4xl mb-4;
+        }
+        .benefit-card h4 {
+            @apply text-xl font-bold text-gray-800 mb-2;
+        }
+        .benefit-card p {
+            @apply text-gray-600 text-sm;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            @apply bg-blue-800 text-white py-16 text-center rounded-xl my-16 mx-4 md:mx-auto max-w-4xl shadow-xl;
+        }
+        .cta-section h3 {
+            @apply text-3xl md:text-4xl font-bold mb-4;
+        }
+        .cta-section p {
+            @apply text-lg md:text-xl mb-8 opacity-90;
+        }
+        .cta-buttons {
+            @apply flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6;
+        }
+        .btn-primary {
+            @apply bg-yellow-400 text-blue-900 px-8 py-4 rounded-full text-lg font-bold hover:bg-yellow-500 transition duration-300 shadow-lg;
+        }
+        .btn-secondary {
+            @apply bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white hover:text-blue-800 transition duration-300 shadow-lg;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800">
+
     <!-- Header -->
     <header class="bg-white shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-4">
-                    <img src="https://i.postimg.cc/90ZwGWYJ/487980805-2698878613834013-1754575642248618034-n.jpg" alt="Logo" class="h-12 w-12 rounded-full">
+                    <!-- Logo Placeholder -->
+                    <img src="https://placehold.co/48x48/3b82f6/ffffff?text=ITS" alt="Logo Instituto" class="h-12 w-12 rounded-full">
                     <div>
                         <h1 class="text-2xl font-bold text-blue-900">Instituto Tecnológico Superior</h1>
                         <p class="text-sm text-gray-600">Excelencia en Educación Técnica</p>
@@ -26,10 +152,17 @@
                     <a href="carreras.html" class="text-blue-900 font-bold">Carreras</a>
                     <a href="index.html#contacto" class="text-gray-700 hover:text-blue-900 transition duration-300">Contacto</a>
                 </nav>
-                <button class="md:hidden text-gray-700">
+                <button id="mobile-menu-button" class="md:hidden text-gray-700">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
+        </div>
+        <!-- Menú Móvil (Oculto por defecto) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 shadow-lg">
+            <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Inicio</a>
+            <a href="index.html#nosotros" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Nosotros</a>
+            <a href="carreras.html" class="block px-4 py-2 text-blue-900 font-bold hover:bg-gray-100">Carreras</a>
+            <a href="index.html#contacto" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Contacto</a>
         </div>
     </header>
 
@@ -67,22 +200,13 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Carrera 1: Desarrollo de Software -->
-                <div class="card-hover">
-                    <div class="program-card-bg">
-                        <div class="career-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white text-center">Desarrollo de Software</h3>
-                        <div class="popular-badge">Popular</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="career-tags">
-                            <span class="career-tag">3 años</span>
-                            <span class="career-tag">Presencial</span>
-                            <span class="career-tag">Técnico</span>
-                        </div>
+                <div class="career-card-new">
+                    <img src="https://placehold.co/600x350/a7d9ff/000000?text=Desarrollo+Software" alt="Desarrollo de Software" class="career-card-image">
+                    <div class="career-card-content">
+                        <h3>Desarrollo de Software</h3>
                         <p>Forma profesionales capaces de diseñar, desarrollar y mantener aplicaciones de software utilizando las últimas tecnologías y metodologías de desarrollo.</p>
-                        <a href="#" class="career-link">
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">
                             Más información
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -90,21 +214,13 @@
                 </div>
 
                 <!-- Carrera 2: Redes y Telecomunicaciones -->
-                <div class="card-hover">
-                    <div class="program-card-bg">
-                        <div class="career-icon">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white text-center">Redes y Telecomunicaciones</h3>
-                    </div>
-                    <div class="card-content">
-                        <div class="career-tags">
-                            <span class="career-tag">3 años</span>
-                            <span class="career-tag">Presencial</span>
-                            <span class="career-tag">Técnico</span>
-                        </div>
+                <div class="career-card-new">
+                    <img src="https://placehold.co/600x350/a7d9ff/000000?text=Redes+Telecom" alt="Redes y Telecomunicaciones" class="career-card-image">
+                    <div class="career-card-content">
+                        <h3>Redes y Telecomunicaciones</h3>
                         <p>Especialízate en el diseño, implementación y administración de redes de comunicación y sistemas de telecomunicaciones modernos.</p>
-                        <a href="#" class="career-link">
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">
                             Más información
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -112,21 +228,13 @@
                 </div>
 
                 <!-- Carrera 3: Electrónica Industrial -->
-                <div class="card-hover">
-                    <div class="program-card-bg">
-                        <div class="career-icon">
-                            <i class="fas fa-microchip"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white text-center">Electrónica Industrial</h3>
-                    </div>
-                    <div class="card-content">
-                        <div class="career-tags">
-                            <span class="career-tag">3 años</span>
-                            <span class="career-tag">Presencial</span>
-                            <span class="career-tag">Técnico</span>
-                        </div>
+                <div class="career-card-new">
+                    <img src="https://placehold.co/600x350/a7d9ff/000000?text=Electronica+Industrial" alt="Electrónica Industrial" class="career-card-image">
+                    <div class="career-card-content">
+                        <h3>Electrónica Industrial</h3>
                         <p>Aprende a diseñar, instalar y mantener sistemas electrónicos industriales, automatización y control de procesos productivos.</p>
-                        <a href="#" class="career-link">
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">
                             Más información
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -134,22 +242,13 @@
                 </div>
 
                 <!-- Carrera 4: Administración de Empresas -->
-                <div class="card-hover">
-                    <div class="program-card-bg">
-                        <div class="career-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white text-center">Administración de Empresas</h3>
-                        <div class="popular-badge">Demandada</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="career-tags">
-                            <span class="career-tag">3 años</span>
-                            <span class="career-tag">Presencial</span>
-                            <span class="career-tag">Técnico</span>
-                        </div>
+                <div class="career-card-new">
+                    <img src="https://placehold.co/600x350/a7d9ff/000000?text=Administracion+Empresas" alt="Administración de Empresas" class="career-card-image">
+                    <div class="career-card-content">
+                        <h3>Administración de Empresas</h3>
                         <p>Desarrolla habilidades gerenciales y administrativas para liderar organizaciones y emprender proyectos empresariales exitosos.</p>
-                        <a href="#" class="career-link">
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">
                             Más información
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -157,21 +256,13 @@
                 </div>
 
                 <!-- Carrera 5: Contabilidad -->
-                <div class="card-hover">
-                    <div class="program-card-bg">
-                        <div class="career-icon">
-                            <i class="fas fa-calculator"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white text-center">Contabilidad</h3>
-                    </div>
-                    <div class="card-content">
-                        <div class="career-tags">
-                            <span class="career-tag">3 años</span>
-                            <span class="career-tag">Presencial</span>
-                            <span class="career-tag">Técnico</span>
-                        </div>
+                <div class="career-card-new">
+                    <img src="https://placehold.co/600x350/a7d9ff/000000?text=Contabilidad" alt="Contabilidad" class="career-card-image">
+                    <div class="career-card-content">
+                        <h3>Contabilidad</h3>
                         <p>Conviértete en un experto en gestión financiera, auditoría y análisis contable con las herramientas más actuales del mercado.</p>
-                        <a href="#" class="career-link">
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">
                             Más información
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -179,21 +270,13 @@
                 </div>
 
                 <!-- Carrera 6: Mecánica Automotriz -->
-                <div class="card-hover">
-                    <div class="program-card-bg">
-                        <div class="career-icon">
-                            <i class="fas fa-car"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white text-center">Mecánica Automotriz</h3>
-                    </div>
-                    <div class="card-content">
-                        <div class="career-tags">
-                            <span class="career-tag">3 años</span>
-                            <span class="career-tag">Presencial</span>
-                            <span class="career-tag">Técnico</span>
-                        </div>
+                <div class="career-card-new">
+                    <img src="https://placehold.co/600x350/a7d9ff/000000?text=Mecanica+Automotriz" alt="Mecánica Automotriz" class="career-card-image">
+                    <div class="career-card-content">
+                        <h3>Mecánica Automotriz</h3>
                         <p>Especialízate en diagnóstico, reparación y mantenimiento de vehículos con tecnología de última generación.</p>
-                        <a href="#" class="career-link">
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">
                             Más información
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -201,22 +284,13 @@
                 </div>
 
                 <!-- Carrera 7: Enfermería -->
-                <div class="card-hover">
-                    <div class="program-card-bg">
-                        <div class="career-icon">
-                            <i class="fas fa-user-nurse"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white text-center">Enfermería</h3>
-                        <div class="popular-badge">Esencial</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="career-tags">
-                            <span class="career-tag">3 años</span>
-                            <span class="career-tag">Presencial</span>
-                            <span class="career-tag">Técnico</span>
-                        </div>
+                <div class="career-card-new">
+                    <img src="https://placehold.co/600x350/a7d9ff/000000?text=Enfermeria" alt="Enfermería" class="career-card-image">
+                    <div class="career-card-content">
+                        <h3>Enfermería</h3>
                         <p>Forma profesionales de la salud comprometidos con el cuidado integral del paciente, utilizando técnicas modernas de atención médica.</p>
-                        <a href="#" class="career-link">
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">
                             Más información
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -224,21 +298,13 @@
                 </div>
 
                 <!-- Carrera 8: Gastronomía -->
-                <div class="card-hover">
-                    <div class="program-card-bg">
-                        <div class="career-icon">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white text-center">Gastronomía</h3>
-                    </div>
-                    <div class="card-content">
-                        <div class="career-tags">
-                            <span class="career-tag">2.5 años</span>
-                            <span class="career-tag">Presencial</span>
-                            <span class="career-tag">Técnico</span>
-                        </div>
+                <div class="career-card-new">
+                    <img src="https://placehold.co/600x350/a7d9ff/000000?text=Gastronomia" alt="Gastronomía" class="career-card-image">
+                    <div class="career-card-content">
+                        <h3>Gastronomía</h3>
                         <p>Desarrolla tu creatividad culinaria y aprende técnicas gastronómicas nacionales e internacionales para destacar en la industria alimentaria.</p>
-                        <a href="#" class="career-link">
+                        <p class="career-card-duration">Duración: 2.5 años</p>
+                        <a href="#" class="career-card-link">
                             Más información
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -246,21 +312,13 @@
                 </div>
 
                 <!-- Carrera 9: Diseño Gráfico -->
-                <div class="card-hover">
-                    <div class="program-card-bg">
-                        <div class="career-icon">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white text-center">Diseño Gráfico</h3>
-                    </div>
-                    <div class="card-content">
-                        <div class="career-tags">
-                            <span class="career-tag">3 años</span>
-                            <span class="career-tag">Presencial</span>
-                            <span class="career-tag">Técnico</span>
-                        </div>
+                <div class="career-card-new">
+                    <img src="https://placehold.co/600x350/a7d9ff/000000?text=Diseno+Grafico" alt="Diseño Gráfico" class="career-card-image">
+                    <div class="career-card-content">
+                        <h3>Diseño Gráfico</h3>
                         <p>Combina creatividad y tecnología para crear soluciones visuales impactantes en medios digitales e impresos.</p>
-                        <a href="#" class="career-link">
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">
                             Más información
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -355,5 +413,24 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Lógica para el menú móvil
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Opcional: Cerrar el menú móvil si se hace clic fuera de él
+        document.addEventListener('click', (event) => {
+            const isClickInsideMenu = mobileMenu.contains(event.target);
+            const isClickOnButton = mobileMenuButton.contains(event.target);
+            if (!isClickInsideMenu && !isClickOnButton && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
 </body>
 </html>
