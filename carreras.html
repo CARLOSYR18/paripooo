@@ -65,30 +65,42 @@
             @apply text-lg text-gray-600 max-w-3xl mx-auto;
         }
 
-        /* Tarjetas de Carrera - Nuevo Diseño */
+        /* Tarjetas de Carrera - Diseño Profesional */
         .career-card-new {
-            @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl;
+            @apply bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl;
+        }
+        .career-card-image-container {
+            @apply relative w-full h-48 overflow-hidden;
         }
         .career-card-image {
-            @apply w-full h-48 object-cover; /* Ajusta la altura de la imagen */
+            @apply w-full h-full object-cover transition-transform duration-300 ease-in-out;
+        }
+        .career-card-image-overlay {
+            @apply absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 transition-opacity duration-300 ease-in-out;
+        }
+        .career-card-new:hover .career-card-image {
+            @apply scale-110;
+        }
+        .career-card-new:hover .career-card-image-overlay {
+            @apply opacity-50;
         }
         .career-card-content {
-            @apply p-4;
+            @apply p-6 text-center;
         }
         .career-card-content h3 {
-            @apply text-xl font-semibold text-gray-800 mb-2;
+            @apply text-xl font-bold text-gray-800 mb-2;
         }
         .career-card-content p {
-            @apply text-gray-600 text-sm mb-2;
+            @apply text-gray-700 text-sm leading-relaxed mb-3;
         }
         .career-card-duration {
-            @apply text-gray-500 text-xs mb-4;
+            @apply text-gray-500 text-xs font-medium mb-4;
         }
         .career-card-link {
-            @apply text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center space-x-1 transition duration-300;
+            @apply inline-flex items-center justify-center space-x-2 text-blue-600 hover:text-blue-800 font-semibold text-base transition duration-300;
         }
         .career-card-link i {
-            @apply text-xs;
+            @apply text-sm;
         }
 
         /* Sección de Beneficios */
@@ -99,7 +111,7 @@
             @apply text-3xl md:text-4xl font-bold text-blue-800 mb-10;
         }
         .benefit-card {
-            @apply bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-xl;
+            @apply bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl;
         }
         .benefit-icon {
             @apply text-blue-600 text-4xl mb-4;
@@ -201,126 +213,144 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Carrera 1: Desarrollo de Software -->
                 <div class="career-card-new">
-                    <img src="https://placehold.co/600x350/a7d9ff/000000?text=Desarrollo+Software" alt="Desarrollo de Software" class="career-card-image">
+                    <div class="career-card-image-container">
+                        <img src="https://placehold.co/600x350/a7d9ff/000000?text=Desarrollo+Software" alt="Desarrollo de Software" class="career-card-image">
+                        <div class="career-card-image-overlay"></div>
+                    </div>
                     <div class="career-card-content">
                         <h3>Desarrollo de Software</h3>
                         <p>Forma profesionales capaces de diseñar, desarrollar y mantener aplicaciones de software utilizando las últimas tecnologías y metodologías de desarrollo.</p>
                         <p class="career-card-duration">Duración: 3 años</p>
                         <a href="#" class="career-card-link">
-                            Más información
-                            <i class="fas fa-arrow-right"></i>
+                            Más información <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Carrera 2: Redes y Telecomunicaciones -->
                 <div class="career-card-new">
-                    <img src="https://placehold.co/600x350/a7d9ff/000000?text=Redes+Telecom" alt="Redes y Telecomunicaciones" class="career-card-image">
+                    <div class="career-card-image-container">
+                        <img src="https://placehold.co/600x350/a7d9ff/000000?text=Redes+Telecom" alt="Redes y Telecomunicaciones" class="career-card-image">
+                        <div class="career-card-image-overlay"></div>
+                    </div>
                     <div class="career-card-content">
                         <h3>Redes y Telecomunicaciones</h3>
                         <p>Especialízate en el diseño, implementación y administración de redes de comunicación y sistemas de telecomunicaciones modernos.</p>
                         <p class="career-card-duration">Duración: 3 años</p>
                         <a href="#" class="career-card-link">
-                            Más información
-                            <i class="fas fa-arrow-right"></i>
+                            Más información <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Carrera 3: Electrónica Industrial -->
                 <div class="career-card-new">
-                    <img src="https://placehold.co/600x350/a7d9ff/000000?text=Electronica+Industrial" alt="Electrónica Industrial" class="career-card-image">
+                    <div class="career-card-image-container">
+                        <img src="https://placehold.co/600x350/a7d9ff/000000?text=Electronica+Industrial" alt="Electrónica Industrial" class="career-card-image">
+                        <div class="career-card-image-overlay"></div>
+                    </div>
                     <div class="career-card-content">
                         <h3>Electrónica Industrial</h3>
                         <p>Aprende a diseñar, instalar y mantener sistemas electrónicos industriales, automatización y control de procesos productivos.</p>
                         <p class="career-card-duration">Duración: 3 años</p>
                         <a href="#" class="career-card-link">
-                            Más información
-                            <i class="fas fa-arrow-right"></i>
+                            Más información <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Carrera 4: Administración de Empresas -->
                 <div class="career-card-new">
-                    <img src="https://placehold.co/600x350/a7d9ff/000000?text=Administracion+Empresas" alt="Administración de Empresas" class="career-card-image">
+                    <div class="career-card-image-container">
+                        <img src="https://placehold.co/600x350/a7d9ff/000000?text=Administracion+Empresas" alt="Administración de Empresas" class="career-card-image">
+                        <div class="career-card-image-overlay"></div>
+                    </div>
                     <div class="career-card-content">
                         <h3>Administración de Empresas</h3>
                         <p>Desarrolla habilidades gerenciales y administrativas para liderar organizaciones y emprender proyectos empresariales exitosos.</p>
                         <p class="career-card-duration">Duración: 3 años</p>
                         <a href="#" class="career-card-link">
-                            Más información
-                            <i class="fas fa-arrow-right"></i>
+                            Más información <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Carrera 5: Contabilidad -->
                 <div class="career-card-new">
-                    <img src="https://placehold.co/600x350/a7d9ff/000000?text=Contabilidad" alt="Contabilidad" class="career-card-image">
+                    <div class="career-card-image-container">
+                        <img src="https://placehold.co/600x350/a7d9ff/000000?text=Contabilidad" alt="Contabilidad" class="career-card-image">
+                        <div class="career-card-image-overlay"></div>
+                    </div>
                     <div class="career-card-content">
                         <h3>Contabilidad</h3>
                         <p>Conviértete en un experto en gestión financiera, auditoría y análisis contable con las herramientas más actuales del mercado.</p>
                         <p class="career-card-duration">Duración: 3 años</p>
                         <a href="#" class="career-card-link">
-                            Más información
-                            <i class="fas fa-arrow-right"></i>
+                            Más información <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Carrera 6: Mecánica Automotriz -->
                 <div class="career-card-new">
-                    <img src="https://placehold.co/600x350/a7d9ff/000000?text=Mecanica+Automotriz" alt="Mecánica Automotriz" class="career-card-image">
+                    <div class="career-card-image-container">
+                        <img src="https://placehold.co/600x350/a7d9ff/000000?text=Mecanica+Automotriz" alt="Mecánica Automotriz" class="career-card-image">
+                        <div class="career-card-image-overlay"></div>
+                    </div>
                     <div class="career-card-content">
                         <h3>Mecánica Automotriz</h3>
                         <p>Especialízate en diagnóstico, reparación y mantenimiento de vehículos con tecnología de última generación.</p>
                         <p class="career-card-duration">Duración: 3 años</p>
                         <a href="#" class="career-card-link">
-                            Más información
-                            <i class="fas fa-arrow-right"></i>
+                            Más información <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Carrera 7: Enfermería -->
                 <div class="career-card-new">
-                    <img src="https://placehold.co/600x350/a7d9ff/000000?text=Enfermeria" alt="Enfermería" class="career-card-image">
+                    <div class="career-card-image-container">
+                        <img src="https://placehold.co/600x350/a7d9ff/000000?text=Enfermeria" alt="Enfermería" class="career-card-image">
+                        <div class="career-card-image-overlay"></div>
+                    </div>
                     <div class="career-card-content">
                         <h3>Enfermería</h3>
                         <p>Forma profesionales de la salud comprometidos con el cuidado integral del paciente, utilizando técnicas modernas de atención médica.</p>
                         <p class="career-card-duration">Duración: 3 años</p>
                         <a href="#" class="career-card-link">
-                            Más información
-                            <i class="fas fa-arrow-right"></i>
+                            Más información <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Carrera 8: Gastronomía -->
                 <div class="career-card-new">
-                    <img src="https://placehold.co/600x350/a7d9ff/000000?text=Gastronomia" alt="Gastronomía" class="career-card-image">
+                    <div class="career-card-image-container">
+                        <img src="https://placehold.co/600x350/a7d9ff/000000?text=Gastronomia" alt="Gastronomía" class="career-card-image">
+                        <div class="career-card-image-overlay"></div>
+                    </div>
                     <div class="career-card-content">
                         <h3>Gastronomía</h3>
                         <p>Desarrolla tu creatividad culinaria y aprende técnicas gastronómicas nacionales e internacionales para destacar en la industria alimentaria.</p>
                         <p class="career-card-duration">Duración: 2.5 años</p>
                         <a href="#" class="career-card-link">
-                            Más información
-                            <i class="fas fa-arrow-right"></i>
+                            Más información <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Carrera 9: Diseño Gráfico -->
                 <div class="career-card-new">
-                    <img src="https://placehold.co/600x350/a7d9ff/000000?text=Diseno+Grafico" alt="Diseño Gráfico" class="career-card-image">
+                    <div class="career-card-image-container">
+                        <img src="https://placehold.co/600x350/a7d9ff/000000?text=Diseno+Grafico" alt="Diseño Gráfico" class="career-card-image">
+                        <div class="career-card-image-overlay"></div>
+                    </div>
                     <div class="career-card-content">
                         <h3>Diseño Gráfico</h3>
                         <p>Combina creatividad y tecnología para crear soluciones visuales impactantes en medios digitales e impresos.</p>
                         <p class="career-card-duration">Duración: 3 años</p>
                         <a href="#" class="career-card-link">
-                            Más información
-                            <i class="fas fa-arrow-right"></i>
+                            Más información <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
@@ -329,108 +359,4 @@
             <!-- Sección de Beneficios -->
             <div class="benefits-section">
                 <h3>¿Por qué estudiar con nosotros?</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h4>Educación de Calidad</h4>
-                        <p>Programas académicos actualizados y certificados</p>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h4>Docentes Expertos</h4>
-                        <p>Profesionales con amplia experiencia en el sector</p>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-laptop"></i>
-                        </div>
-                        <h4>Tecnología Moderna</h4>
-                        <p>Laboratorios equipados con última tecnología</p>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <h4>Inserción Laboral</h4>
-                        <p>Convenios con empresas para prácticas profesionales</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Call to Action -->
-            <div class="cta-section">
-                <h3>¿Listo para comenzar tu futuro?</h3>
-                <p>Inscríbete ahora y forma parte de la próxima generación de profesionales técnicos</p>
-                <div class="cta-buttons">
-                    <a href="index.html#contacto" class="btn-primary">Inscríbete Ahora</a>
-                    <a href="#" class="btn-secondary">Descargar Brochure</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Instituto Tecnológico Superior</h3>
-                    <p class="text-gray-400">Formando profesionales técnicos de excelencia desde 1995.</p>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Enlaces Rápidos</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white">Inicio</a></li>
-                        <li><a href="index.html#nosotros" class="text-gray-400 hover:text-white">Nosotros</a></li>
-                        <li><a href="carreras.html" class="text-gray-400 hover:text-white">Carreras</a></li>
-                        <li><a href="index.html#contacto" class="text-gray-400 hover:text-white">Contacto</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Contacto</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><i class="fas fa-phone mr-2"></i> +1 234 567 8900</li>
-                        <li><i class="fas fa-envelope mr-2"></i> info@instituto.edu</li>
-                        <li><i class="fas fa-map-marker-alt mr-2"></i> Av. Educación 123, Ciudad</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Síguenos</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin text-xl"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 Instituto Tecnológico Superior. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Lógica para el menú móvil
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Opcional: Cerrar el menú móvil si se hace clic fuera de él
-        document.addEventListener('click', (event) => {
-            const isClickInsideMenu = mobileMenu.contains(event.target);
-            const isClickOnButton = mobileMenuButton.contains(event.target);
-            if (!isClickInsideMenu && !isClickOnButton && !mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-    </script>
-</body>
-</html>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-
