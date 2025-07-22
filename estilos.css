@@ -1,54 +1,308 @@
-<?php
-include("conexion.php");
-$resultado = $conn->query("SELECT * FROM Productos");
-?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos.css">
-    <title>Productos</title>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="nav-brand">
-            <img src="pari.jpg" alt="Logo" class="nav-logo">
-            <span>Jesus Pari Lujan Carrion</span>
-        </div>
-        <div class="nav-menu">
-            <a href="index.php">Inicio</a>
-            <a href="#">Nosotros</a>
-            <a href="productos.php">Productos</a>
-            <a href="#">Admisión</a>
-            <a href="#">Examen Admisión</a>
-            <a href="#">Contacto</a>
-        </div>
-    </nav>
+/* === Google Fonts: Inter para un look moderno === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 
-    <div class="main-container">
-        <h1 class="page-title">Gestión de Productos</h1>
-        <div class="content-wrapper">
-            <table class="modern-table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Precio</th>
-                    <th>Stock</th>
-                </tr>
-            </thead>
-            <tbody>
-<?php while($row = $resultado->fetch_assoc()): ?>
-<tr>
-    <td><?= $row['id_producto'] ?></td>
-    <td><?= $row['nombre'] ?></td>
-    <td><?= $row['precio'] ?></td>
-    <td><?= $row['stock'] ?></td>
-</tr>
-<?php endwhile; ?>
-            </tbody>
-        </table>
-    </div>
-</body>
-</html>
+:root {
+  --primary: #1a365d;
+  --secondary: #2c5282;
+  --accent: #ecc94b;
+  --neutral: #f8fafc;
+  --gray: #6b7280;
+  --success: #22c55e;
+  --danger: #ef4444;
+  --footer-bg: #111827;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--neutral);
+  color: var(--primary);
+  scroll-behavior: smooth;
+  letter-spacing: 0.01em;
+}
+
+/* === Header Mejorado === */
+header {
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(26,54,93,0.07);
+  border-bottom: 1.5px solid #e5e7eb;
+}
+header h1 {
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+header p {
+  color: var(--gray);
+}
+
+/* === Hero Section === */
+.hero {
+  background: linear-gradient(120deg,rgba(26,54,93,0.7),rgba(44,82,130,0.7)), url('https://i.postimg.cc/90ZwGWYJ/487980805-2698878613834013-1754575642248618034-n.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  letter-spacing: 0.01em;
+}
+.hero p {
+  color: #f3f4f6;
+  font-size: 1.3rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.10);
+}
+.hero a {
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(26,54,93,0.08);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.hero a.bg-yellow-500 {
+  background: var(--accent);
+  color: var(--primary);
+}
+.hero a.bg-yellow-500:hover {
+  background: #ffd600;
+  color: var(--secondary);
+  transform: translateY(-2px) scale(1.04);
+}
+.hero a.bg-transparent {
+  border: 2px solid #fff;
+  color: #fff;
+  background: transparent;
+}
+.hero a.bg-transparent:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* === Stats Section === */
+section.bg-blue-900 .text-4xl {
+  color: var(--accent);
+  font-weight: 900;
+  letter-spacing: 0.01em;
+}
+section.bg-blue-900 .text-xl {
+  color: #fff;
+  opacity: 0.92;
+}
+
+/* === About Section === */
+#nosotros img {
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 32px rgba(26,54,93,0.13);
+}
+#nosotros h2 {
+  font-weight: 900;
+  color: var(--primary);
+}
+#nosotros .flex.items-start .bg-blue-100 {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+/* === Programas: Tarjetas Mejoradas === */
+.card-hover {
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 24px rgba(26,54,93,0.10);
+  border: 1px solid #e5e7eb;
+  transition: box-shadow 0.3s, transform 0.3s;
+  overflow: hidden;
+  background: #fff;
+}
+.card-hover:hover {
+  box-shadow: 0 8px 32px rgba(26,54,93,0.18);
+  transform: translateY(-8px) scale(1.03);
+}
+.program-card-bg {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.program-card-bg::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(180deg,rgba(0,0,0,0.18) 0%,rgba(0,0,0,0.38) 100%);
+  z-index: 1;
+}
+.program-card-bg > * {
+  position: relative;
+  z-index: 2;
+}
+.card-hover h3 {
+  color: var(--primary);
+  font-weight: 900;
+}
+.card-hover p, .card-hover span {
+  color: var(--gray);
+}
+.card-hover a {
+  color: var(--primary);
+  font-weight: 700;
+  transition: color 0.2s;
+}
+.card-hover a:hover {
+  color: var(--secondary);
+  text-decoration: underline;
+}
+
+/* === Botón principal === */
+a.inline-block.bg-blue-900,
+button.bg-blue-900 {
+  background: var(--primary);
+  color: #fff;
+  border-radius: 9999px;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 8px rgba(26,54,93,0.08);
+  transition: background 0.2s, transform 0.2s;
+}
+a.inline-block.bg-blue-900:hover,
+button.bg-blue-900:hover {
+  background: var(--secondary);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* === Formulario de Contacto === */
+input, select, textarea {
+  border-radius: 0.75rem !important;
+  border: 1.5px solid #e5e7eb;
+  padding: 0.75rem 1rem;
+  background: #f9fafb;
+  font-size: 1rem;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--accent);
+  outline: none;
+}
+button[type="submit"] {
+  background: var(--primary);
+  color: #fff;
+  font-weight: 900;
+  border-radius: 0.75rem;
+  transition: background 0.2s, transform 0.2s;
+}
+button[type="submit"]:hover {
+  background: var(--secondary);
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* === Modal del Examen === */
+.exam-modal-content {
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(26,54,93,0.18);
+  animation: modalopen 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+  border: 1.5px solid #e5e7eb;
+}
+.close-exam {
+  color: var(--primary);
+  font-size: 2rem;
+  font-weight: 900;
+  opacity: 0.8;
+  transition: color 0.2s, opacity 0.2s;
+}
+.close-exam:hover {
+  color: var(--accent);
+  opacity: 1;
+}
+.exam-question {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  border: 1.5px solid #e5e7eb;
+}
+.exam-result {
+  font-size: 1.25rem;
+  font-weight: bold;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  margin-top: 2rem;
+  display: none;
+}
+.exam-passed {
+  background-color: #d1fae5;
+  color: #065f46;
+  animation: dance 0.5s ease infinite alternate;
+}
+.exam-failed {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+@keyframes dance {
+  0% { transform: rotate(-2deg); }
+  100% { transform: rotate(2deg); }
+}
+
+/* === Footer Moderno === */
+footer {
+  background: var(--footer-bg);
+  color: #e5e7eb;
+  border-top: 2px solid #222c3a;
+}
+footer h3, footer h4 {
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+}
+footer a {
+  color: #e5e7eb;
+  opacity: 0.8;
+  transition: color 0.2s, opacity 0.2s;
+}
+footer a:hover {
+  color: var(--accent);
+  opacity: 1;
+  text-decoration: underline;
+}
+footer .bg-gray-700 {
+  background: #2d3748 !important;
+}
+footer .bg-gray-700:hover {
+  background: var(--primary) !important;
+}
+footer .text-gray-400 {
+  color: #cbd5e1 !important;
+}
+footer .text-gray-500 {
+  color: #94a3b8 !important;
+}
+
+/* === Redes sociales y detalles === */
+a.w-10, a.w-8 {
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+a.w-10:hover, a.w-8:hover {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+/* === Responsive Mejorado === */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+  .card-hover { margin-bottom: 1.5rem; }
+  .exam-modal-content { padding: 1.2rem; }
+}
+
+/* === Animaciones Sutiles === */
+.card-hover, .btn-primary, .hero a, .exam-modal-content, .exam-question, input, select, textarea {
+  transition: box-shadow 0.2s, transform 0.2s, background 0.2s, color 0.2s, border 0.2s;
+}
