@@ -1,351 +1,490 @@
-<!DOCTYPE html>
-<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universidad Jesus Pari Lujan Carrion</title>
-    <link rel="stylesheet" href="estilos.css">
+    <title>Instituto Tecnológico Superior</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        :root {
-            --primary: #1a365d;
-            --secondary: #2c5282;
-            --accent: #ecc94b;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            scroll-behavior: smooth;
-        }
-        
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://i.postimg.cc/90ZwGWYJ/487980805-2698878613834013-1754575642248618034-n.jpg');
-            background-size: cover;
-            background-position: center;
-            min-height: 80vh;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        .testimonial-card {
-            transition: all 0.3s ease;
-        }
-        
-        .testimonial-card:hover {
-            transform: scale(1.05);
-        }
-        
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-        
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-
-        /* Estilos para el modal del examen */
-        .exam-modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.7);
-            display: flex; /* Added to center content */
-            align-items: center; /* Vertical centering */
-            justify-content: center; /* Horizontal centering */
-        }
-        
-        .exam-modal-content {
-            background-color: #fefefe;
-            margin: auto; /* Adjusted to auto for centering with flex */
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            width: 90%;
-            max-width: 700px;
-            animation: modalopen 0.4s;
-        }
-        
-        @keyframes modalopen {
-            from {opacity: 0; transform: translateY(-50px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
-        
-        .close-exam {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        
-        .close-exam:hover {
-            color: black;
-        }
-        
-        /* Estilos para el examen dentro del modal */
-        .exam-question {
-            background: #f8fafc;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .exam-result {
-            font-size: 1.25rem;
-            font-weight: bold;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            text-align: center;
-            margin-top: 2rem;
-            display: none;
-        }
-        
-        .exam-passed {
-            background-color: #d1fae5;
-            color: #065f46;
-            animation: dance 0.5s ease infinite alternate;
-        }
-        
-        .exam-failed {
-            background-color: #fee2e2;
-            color: #991b1b;
-        }
-        
-        @keyframes dance {
-            0% { transform: rotate(-2deg); }
-            100% { transform: rotate(2deg); }
-        }
-
-        /* Estilos para la sección de programas (fondo general) */
-        #programas {
-            background-color: #f8fafc; /* Color de fondo neutro para la sección general */
-            color: #1a365d; /* Color de texto principal para la sección */
-        }
-
-        /* Clase genérica para el fondo de cada tarjeta de programa */
-        .program-card-bg {
-            background-size: cover; /* La imagen cubrirá todo el espacio */
-            background-position: center; /* La imagen se centrará */
-            background-repeat: no-repeat; /* Evita que la imagen se repita */
-            position: relative; /* Necesario para la capa de superposición */
-            overflow: hidden; /* Asegura que la imagen no se desborde */
-        }
-
-        /* Capa de superposición para mejorar el contraste del texto sobre la imagen */
-        .program-card-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* Capa oscura semitransparente */
-            z-index: 1; /* Asegura que la capa esté sobre la imagen pero debajo del contenido */
-        }
-
-        /* Asegura que el contenido de la tarjeta esté sobre la capa de superposición */
-        .program-card-bg > * {
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Asegura que los títulos y textos dentro de programas sean del color principal */
-        #programas h2,
-        #programas p {
-            color: #1a365d; /* Color de texto principal */
-        }
-
-        /* Ajusta el color de los enlaces dentro de programas para que sean visibles */
-        #programas a {
-            color: var(--primary); /* Usando el color primario definido en :root */
-        }
-        #programas a:hover {
-            color: var(--secondary); /* Un tono más oscuro del primario al pasar el ratón */
-        }
-
-        /* Ajusta el fondo de las tarjetas de programas para que sigan siendo blancas */
-        #programas .bg-white {
-            background-color: white; /* Mantiene las tarjetas de programas blancas */
-        }
-        #programas .bg-white h3,
-        #programas .bg-white p,
-        #programas .bg-white span {
-            color: #1a365d; /* Vuelve el color del texto de las tarjetas al primario */
-        }
-        #programas .bg-white a {
-            color: #1a365d; /* Vuelve el color de los enlaces de las tarjetas al primario */
-        }
-        #programas .bg-white a:hover {
-            color: #2c5282; /* Vuelve el color de los enlaces de las tarjetas al secundario */
-        }
-    </style>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Carreras - Instituto Tecnológico Superior</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Enlaza tu CSS aquí -->
 </head>
-<body class="bg-gray-50">
+<body>
+
     <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-3">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                    <!-- Logo en el encabezado -->
-                    <img src="https://i.postimg.cc/HLFL3qxK/466079839-122129913590439225-422388642053743968-n-1.jpg" 
-                    alt="Logo" 
-                    style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <img src="https://i.postimg.cc/90ZwGWYJ/487980805-2698878613834013-1754575642248618034-n.jpg" alt="Logo" class="h-12 w-12 rounded-full">
                     <div>
-                        <h1 class="text-xl font-bold text-gray-800">Jesus Pari Lujan Carrion</h1>
-                        <p class="text-sm text-gray-600">Universidad de Excelencia</p>
+                        <h1 class="text-2xl font-bold text-blue-900">Instituto Tecnológico Superior</h1>
+                        <p class="text-sm text-gray-600">Excelencia en Educación Técnica</p>
                     </div>
                 </div>
-                
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#inicio" class="text-blue-900 font-medium hover:text-blue-700">Inicio</a>
-                    <a href="#nosotros" class="text-gray-700 hover:text-blue-900">Nosotros</a>
-                    <a href="#programas" class="text-gray-700 hover:text-blue-900">Programas</a>
-                    <a href="#admision" class="text-gray-700 hover:text-blue-900">Admisión</a>
-                    <a id="examLink" href="#" class="text-gray-700 hover:text-blue-900">Examen Admisión</a>
-                    <a href="#contacto" class="text-gray-700 hover:text-blue-900">Contacto</a>
+                <!-- NAVEGACIÓN ACTUALIZADA -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#inicio" class="text-gray-700 hover:text-blue-900 transition duration-300">Inicio</a>
+                    <a href="#nosotros" class="text-gray-700 hover:text-blue-900 transition duration-300">Nosotros</a>
+                    <!-- ENLACE CARRERAS ACTUALIZADO - ABRE EN NUEVA PESTAÑA -->
+                    <a href="carreras.html" target="_blank" class="text-gray-700 hover:text-blue-900 transition duration-300">Carreras</a>
+                    <a href="#contacto" class="text-gray-700 hover:text-blue-900 transition duration-300">Contacto</a>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="https://placehold.co/48x48/3b82f6/ffffff?text=ITS" alt="Logo Instituto" class="logo">
+                <div class="header-text">
+                    <h1>Instituto Tecnológico Superior</h1>
+                    <p>Excelencia en Educación Técnica</p>
+                </div>
+                <nav class="nav-links">
+                    <a href="index.html">Inicio</a>
+                    <a href="index.html#nosotros">Nosotros</a>
+                    <a href="carreras.html" class="active">Carreras</a>
+                    <a href="examen.html">Examen de admisión</a>
+                    <a href="index.html#contacto">Contacto</a>
                 </nav>
-                
-                <button class="md:hidden focus:outline-none" id="menu-btn">
-                    <i class="fas fa-bars text-gray-700 text-2xl"></i>
+                <button class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
                 </button>
-            </div>
-            
-            <!-- Mobile menu -->
-            <div class="md:hidden hidden mt-4" id="mobile-menu">
-                <a href="#inicio" class="block py-2 text-blue-900 font-medium">Inicio</a>
-                <a href="#nosotros" class="block py-2 text-gray-700">Nosotros</a>
-                <a href="#programas" class="block py-2 text-gray-700">Programas</a>
-                <a href="#admision" class="block py-2 text-gray-700">Admisión</a>
-                <a id="examLinkMobile" href="#" class="block py-2 text-gray-700">Examen Admisión</a>
-                <a href="#contacto" class="block py-2 text-gray-700">Contacto</a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero flex items-center justify-center text-white" id="inicio">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">Transformando Vidas a través de la Educación</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">En la Universidad Jesus Pari Lujan Carrion, formamos líderes con valores, conocimientos y habilidades para el mundo actual.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#admision" class="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">Aplica Ahora</a>
-                <a href="#programas" class="bg-transparent hover:bg-blue-900 text-white font-semibold hover:text-white py-3 px-8 border border-white hover:border-transparent rounded-full transition duration-300 transform hover:scale-105">Explora Programas</a>
-                <a id="examLinkHero" href="#" class="bg-transparent hover:bg-blue-900 text-white font-semibold hover:text-white py-3 px-8 border border-white hover:border-transparent rounded-full transition duration-300 transform hover:scale-105">Examen Admisión</a>
+    <section id="inicio" class="hero">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-6">Forjando el Futuro Tecnológico</h1>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Únete a la excelencia educativa en tecnología. Desarrolla tus habilidades con los mejores profesionales y tecnología de vanguardia.</p>
+            <!-- BOTONES ACTUALIZADOS -->
+            <div class="space-x-4">
+                <!-- BOTÓN VER CARRERAS ACTUALIZADO - ABRE EN NUEVA PESTAÑA -->
+                <a href="carreras.html" target="_blank" class="bg-yellow-500 text-blue-900 px-8 py-3 rounded-full font-bold hover:bg-yellow-400 transition duration-300">Ver Carreras</a>
+                <a href="#contacto" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-blue-900 transition duration-300">Contactar</a>
             </div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Nuestras Carreras</h1>
+            <p>Descubre tu futuro profesional con nuestros programas de excelencia</p>
         </div>
     </section>
 
     <!-- Stats Section -->
-    <section class="bg-blue-900 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-                <div class="p-6">
-                    <div class="text-4xl font-bold mb-2">25+</div>
-                    <div class="text-xl">Años de Experiencia</div>
+    <section class="bg-blue-900 py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center text-white">
+                <div>
+                    <div class="text-4xl font-bold mb-2">500+</div>
+                    <div class="text-xl">Estudiantes Graduados</div>
                 </div>
-                <div class="p-6">
-                    <div class="text-4xl font-bold mb-2">50+</div>
-                    <div class="text-xl">Programas Académicos</div>
-                </div>
-                <div class="p-6">
-                    <div class="text-4xl font-bold mb-2">10,000+</div>
-                    <div class="text-xl">Egresados</div>
-                </div>
-                <div class="p-6">
+                <div>
                     <div class="text-4xl font-bold mb-2">95%</div>
                     <div class="text-xl">Tasa de Empleabilidad</div>
                 </div>
+                <div>
+                    <div class="text-4xl font-bold mb-2">25+</div>
+                    <div class="text-xl">Años de Experiencia</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold mb-2">6</div>
+                    <div class="text-xl">Carreras Técnicas</div>
+                </div>
+    <!-- Sección de Carreras -->
+    <section class="careers-container">
+        <div class="container">
+            <div class="careers-title">
+                <h2>Programas Académicos</h2>
+                <p>Ofrecemos carreras técnicas de vanguardia diseñadas para formar profesionales competitivos en el mercado laboral actual.</p>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="py-20 bg-white" id="nosotros">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <img src="https://i.postimg.cc/HLFL3qxK/466079839-122129913590439225-422388642053743968-n-1.jpg" 
-                         alt="Estudiantes universitarios" 
-                         class="rounded-lg shadow-xl w-full h-auto object-cover">
+    <section id="nosotros" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://i.postimg.cc/90ZwGWYJ/487980805-2698878613834013-1754575642248618034-n.jpg" alt="Instituto" class="rounded-lg shadow-lg w-full">
                 </div>
-                <div class="md:w-1/2 md:pl-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-6">Nuestra Universidad</h2>
-                    <p class="text-gray-700 mb-6 leading-relaxed">
-                        Fundada en el año 2025, la Universidad Jesus Pari Lujan Carrion se ha consolidado como una institución líder en educación superior especial peruana, 
-                        comprometida con la excelencia académica de nuestros estuantes especiales , siendo nuestro frase insignia el " botame tu gaaa"
-                    </p>
-                    <p class="text-gray-700 mb-8 leading-relaxed">
-                        Nuestro modelo educativo combina teoría y práctica en las mejores empresas lideres para poder demostrar tu pontecial como especial, preparando profesionales capaces de enfrentar los desafíos del siglo XXI 
-                        con ética destacandonos de otras universides , creatividad y pensamiento crítico asi que si tu eres especial esta es tu universidad
+                <div>
+                    <h2 class="text-4xl font-bold mb-6 text-blue-900">Sobre Nosotros</h2>
+                    <p class="text-lg text-gray-700 mb-6">
+                        Con más de 25 años de experiencia, somos una institución líder en educación técnica superior. 
+                        Nos dedicamos a formar profesionales altamente capacitados que respondan a las demandas del mercado laboral actual.
                     </p>
                     <div class="space-y-4">
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="flex items-center justify-center h-8 w-8 rounded-full bg-blue-100 text-blue-900">
-                                    <i class="fas fa-check"></i>
-                                </div>
+                            <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                <i class="fas fa-graduation-cap text-blue-900"></i>
                             </div>
-                            <div class="ml-3">
-                                <p class="text-gray-700 font-medium">Profesores con amplia experiencia académica y profesional</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="flex items-center justify-center h-8 w-8 rounded-full bg-blue-100 text-blue-900">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                            </div>
-                            <div class="ml-3">
-                                <p class="text-gray-700 font-medium">Infraestructura moderna y equipamiento de última generación</p>
+                            <div>
+                                <h3 class="font-bold text-lg">Educación de Calidad</h3>
+                                <p class="text-gray-600">Programas académicos actualizados y certificados por organismos nacionales.</p>
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="flex items-center justify-center h-8 w-8 rounded-full bg-blue-100 text-blue-900">
-                                    <i class="fas fa-check"></i>
-                                </div>
+                            <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                <i class="fas fa-users text-blue-900"></i>
                             </div>
-                            <div class="ml-3">
-                                <p class="text-gray-700 font-medium">Programas académicos reconocidos internacionalmente</p>
+                            <div>
+                                <h3 class="font-bold text-lg">Docentes Expertos</h3>
+                                <p class="text-gray-600">Profesionales con amplia experiencia en el sector tecnológico e industrial.</p>
                             </div>
                         </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                <i class="fas fa-laptop text-blue-900"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Tecnología Moderna</h3>
+                                <p class="text-gray-600">Laboratorios equipados con la última tecnología para un aprendizaje práctico.</p>
+                            </div>
+                        </div>
+            
+            <div class="grid">
+                <!-- Carrera 1: Desarrollo de Software -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <h3>Desarrollo de Software</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Forma profesionales capaces de diseñar, desarrollar y mantener aplicaciones de software utilizando las últimas tecnologías y metodologías de desarrollo.</p>
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">Más información <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Programs Section -->
-    <section class="py-20 bg-gray-50" id="programas">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Nuestros Programas Académicos</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Ofrecemos una amplia gama de programas diseñados para prepararte para el éxito en un mundo globalizado.</p>
+    <!-- 
+    ========================================
+    SECCIÓN DE CARRERAS REMOVIDA COMPLETAMENTE
+    ========================================
+    La sección de carreras que estaba aquí ha sido movida a carreras.html
+    -->
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4 text-blue-900">Contáctanos</h2>
+                <p class="text-xl text-gray-600">¿Listo para comenzar tu futuro? Estamos aquí para ayudarte.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Ingenierías -->
-                <!-- ... (resto de las tarjetas de programas) ... -->
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="#" class="inline-block bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
-                    Ver todos los programas
-                </a>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Información de Contacto -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-blue-900">Información de Contacto</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-blue-900 text-xl mr-4"></i>
+                            <span>Av. Tecnológica 123, Ciudad Universitaria</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-blue-900 text-xl mr-4"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-blue-900 text-xl mr-4"></i>
+                            <span>info@instituto.edu</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-blue-900 text-xl mr-4"></i>
+                            <span>Lun - Vie: 8:00 AM - 6:00 PM</span>
+                        </div>
+                <!-- Carrera 2: Redes y Telecomunicaciones -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <h3>Redes y Telecomunicaciones</h3>
+                    </div>
+                    
+                    <!-- Botón para Examen de Admisión -->
+                    <div class="mt-8">
+                        <button onclick="openExamModal()" class="bg-blue-900 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-800 transition duration-300">
+                            <i class="fas fa-clipboard-check mr-2"></i>
+                            Realizar Examen de Admisión
+                        </button>
+                    <div class="card-content">
+                        <p>Especialízate en el diseño, implementación y administración de redes de comunicación y sistemas de telecomunicaciones modernos.</p>
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Formulario de Contacto -->
+                <div>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <input type="text" placeholder="Nombre" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <input type="email" placeholder="Email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <input type="tel" placeholder="Teléfono" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option>Selecciona una carrera de interés</option>
+                            <option>Desarrollo de Software</option>
+                            <option>Redes y Telecomunicaciones</option>
+                            <option>Electrónica Industrial</option>
+                            <option>Administración de Empresas</option>
+                            <option>Contabilidad</option>
+                            <option>Mecánica Automotriz</option>
+                        </select>
+                        <textarea placeholder="Mensaje" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                        <button type="submit" class="w-full bg-blue-900 text-white py-3 rounded-lg font-bold hover:bg-blue-800 transition duration-300">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <!-- ... (resto del código de contacto, footer, modal examen, y scripts) ... -->
+    <!-- Modal del Examen de Admisión -->
+    <div id="examModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="exam-modal-content bg-white p-8 max-w-2xl w-full mx-4 max-h-96 overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-blue-900">Examen de Admisión</h2>
+                <button onclick="closeExamModal()" class="close-exam">&times;</button>
+            </div>
+            
+            <form id="examForm">
+                <div class="exam-question">
+                    <p class="font-semibold mb-3">1. ¿Cuál es tu principal motivación para estudiar una carrera técnica?</p>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="radio" name="q1" value="a" class="mr-2">
+                            <span>Obtener rápida inserción laboral</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q1" value="b" class="mr-2">
+                            <span>Desarrollar habilidades prácticas</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q1" value="c" class="mr-2">
+                            <span>Emprender mi propio negocio</span>
+                        </label>
+                <!-- Carrera 3: Electrónica Industrial -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <h3>Electrónica Industrial</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Aprende a diseñar, instalar y mantener sistemas electrónicos industriales, automatización y control de procesos productivos.</p>
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="exam-question">
+                    <p class="font-semibold mb-3">2. ¿En qué área te sientes más cómodo trabajando?</p>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="radio" name="q2" value="a" class="mr-2">
+                            <span>Tecnología y programación</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q2" value="b" class="mr-2">
+                            <span>Administración y negocios</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q2" value="c" class="mr-2">
+                            <span>Mecánica y electrónica</span>
+                        </label>
+                <!-- Carrera 4: Administración de Empresas -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <h3>Administración de Empresas</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Desarrolla habilidades gerenciales y administrativas para liderar organizaciones y emprender proyectos empresariales exitosos.</p>
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="exam-question">
+                    <p class="font-semibold mb-3">3. ¿Cuál consideras tu mayor fortaleza?</p>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="radio" name="q3" value="a" class="mr-2">
+                            <span>Resolución de problemas</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q3" value="b" class="mr-2">
+                            <span>Trabajo en equipo</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q3" value="c" class="mr-2">
+                            <span>Creatividad e innovación</span>
+                        </label>
+                <!-- Carrera 5: Contabilidad -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <h3>Contabilidad</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Conviértete en un experto en gestión financiera, auditoría y análisis contable con las herramientas más actuales del mercado.</p>
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-blue-900 text-white py-3 rounded-lg font-bold hover:bg-blue-800 transition duration-300 mt-6">
+                    Enviar Examen
+                </button>
+            </form>
+
+            <div id="examResult" class="exam-result"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Instituto Tecnológico Superior</h3>
+                    <p class="text-gray-400">Formando profesionales técnicos de excelencia desde 1995.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="bg-gray-700 p-2 rounded-full hover:bg-blue-900 transition duration-300">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 p-2 rounded-full hover:bg-blue-900 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 p-2 rounded-full hover:bg-blue-900 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 p-2 rounded-full hover:bg-blue-900 transition duration-300">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                <!-- Carrera 6: Mecánica Automotriz -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <h3>Mecánica Automotriz</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Especialízate en diagnóstico, reparación y mantenimiento de vehículos con tecnología de última generación.</p>
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="text-gray-400 hover:text-white">Inicio</a></li>
+                        <li><a href="#nosotros" class="text-gray-400 hover:text-white">Nosotros</a></li>
+                        <!-- ENLACE CARRERAS ACTUALIZADO EN FOOTER -->
+                        <li><a href="carreras.html" target="_blank" class="text-gray-400 hover:text-white">Carreras</a></li>
+                        <li><a href="#contacto" class="text-gray-400 hover:text-white">Contacto</a></li>
+                    </ul>
+
+                <!-- Carrera 7: Enfermería -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <h3>Enfermería</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Forma profesionales de la salud comprometidos con el cuidado integral del paciente, utilizando técnicas modernas de atención médica.</p>
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Carreras</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Desarrollo de Software</li>
+                        <li>Redes y Telecomunicaciones</li>
+                        <li>Electrónica Industrial</li>
+                        <li>Administración de Empresas</li>
+                        <li>Contabilidad</li>
+                        <li>Mecánica Automotriz</li>
+                    </ul>
+
+                <!-- Carrera 8: Gastronomía -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <h3>Gastronomía</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Desarrolla tu creatividad culinaria y aprende técnicas gastronómicas nacionales e internacionales para destacar en la industria alimentaria.</p>
+                        <p class="career-card-duration">Duración: 2.5 años</p>
+                        <a href="#" class="career-card-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contacto</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-phone mr-2"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope mr-2"></i> info@instituto.edu</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> Av. Tecnológica 123</li>
+                    </ul>
+
+                <!-- Carrera 9: Diseño Gráfico -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <h3>Diseño Gráfico</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Combina creatividad y tecnología para crear soluciones visuales impactantes en medios digitales e impresos.</p>
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Instituto Tecnológico Superior. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function openExamModal() {
+            document.getElementById('examModal').classList.remove('hidden');
+            document.getElementById('examModal').classList.add('flex');
+        }
+
+        function closeExamModal() {
+            document.getElementById('examModal').classList.add('hidden');
+            document.getElementById('examModal').classList.remove('flex');
+            document.getElementById('examForm').reset();
+            document.getElementById('examResult').style.display = 'none';
+        }
+    </section>
+
+        document.getElementById('examForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const answers = {
+                q1: document.querySelector('input[name="q1"]:checked')?.value,
+                q2: document.querySelector('input[name="q2"]:checked')?.value,
+                q3: document.querySelector('input[name="q3"]:checked')?.value
+            };
+            
+            if (!answers.q1 || !answers.q2 || !answers.q3) {
+                alert('Por favor responde todas las preguntas');
+                return;
+            }
+            
+            const resultDiv = document.getElementById('examResult');
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'exam-result exam-passed';
+            resultDiv.innerHTML = '¡Felicitaciones! Has aprobado el examen de admisión. Te contactaremos pronto para continuar con el proceso de inscripción.';
+        });
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Instituto Tecnológico Superior. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+        // Cerrar modal al hacer clic fuera
+        document.getElementById('examModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeExamModal();
+            }
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+</body>
+</html>
