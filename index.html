@@ -1,47 +1,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carreras - Instituto Tecnológico Superior</title>
     <title>Instituto Tecnológico Superior</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="carreras-estilos.css">
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Carreras - Instituto Tecnológico Superior</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Enlaza tu CSS aquí -->
 </head>
 <body>
-@@ -20,11 +20,13 @@ <h1 class="text-2xl font-bold text-blue-900">Instituto Tecnológico Superior</h1
+
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <img src="https://i.postimg.cc/90ZwGWYJ/487980805-2698878613834013-1754575642248618034-n.jpg" alt="Logo" class="h-12 w-12 rounded-full">
+                    <div>
+                        <h1 class="text-2xl font-bold text-blue-900">Instituto Tecnológico Superior</h1>
                         <p class="text-sm text-gray-600">Excelencia en Educación Técnica</p>
                     </div>
                 </div>
                 <!-- NAVEGACIÓN ACTUALIZADA -->
                 <nav class="hidden md:flex space-x-6">
-                    <a href="index.html" class="text-gray-700 hover:text-blue-900 transition duration-300">Inicio</a>
-                    <a href="index.html#nosotros" class="text-gray-700 hover:text-blue-900 transition duration-300">Nosotros</a>
-                    <a href="carreras.html" class="text-blue-900 font-bold">Carreras</a>
-                    <a href="index.html#contacto" class="text-gray-700 hover:text-blue-900 transition duration-300">Contacto</a>
                     <a href="#inicio" class="text-gray-700 hover:text-blue-900 transition duration-300">Inicio</a>
                     <a href="#nosotros" class="text-gray-700 hover:text-blue-900 transition duration-300">Nosotros</a>
                     <!-- ENLACE CARRERAS ACTUALIZADO - ABRE EN NUEVA PESTAÑA -->
                     <a href="carreras.html" target="_blank" class="text-gray-700 hover:text-blue-900 transition duration-300">Carreras</a>
                     <a href="#contacto" class="text-gray-700 hover:text-blue-900 transition duration-300">Contacto</a>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="https://placehold.co/48x48/3b82f6/ffffff?text=ITS" alt="Logo Instituto" class="logo">
+                <div class="header-text">
+                    <h1>Instituto Tecnológico Superior</h1>
+                    <p>Excelencia en Educación Técnica</p>
+                </div>
+                <nav class="nav-links">
+                    <a href="index.html">Inicio</a>
+                    <a href="index.html#nosotros">Nosotros</a>
+                    <a href="carreras.html" class="active">Carreras</a>
+                    <a href="examen.html">Examen de admisión</a>
+                    <a href="index.html#contacto">Contacto</a>
                 </nav>
                 <button class="md:hidden text-gray-700">
                     <i class="fas fa-bars text-xl"></i>
-@@ -33,220 +35,236 @@ <h1 class="text-2xl font-bold text-blue-900">Instituto Tecnológico Superior</h1
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section para Carreras -->
-    <section class="careers-hero">
     <!-- Hero Section -->
     <section id="inicio" class="hero">
         <div class="container mx-auto px-4 text-center">
-            <h1 class="hero-title">Nuestras Carreras</h1>
-            <p class="hero-subtitle">Descubre tu futuro profesional con nuestros programas de excelencia</p>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <span class="stat-number">6</span>
-                    <span class="stat-label">Carreras Disponibles</span>
             <h1 class="text-5xl font-bold mb-6">Forjando el Futuro Tecnológico</h1>
             <p class="text-xl mb-8 max-w-3xl mx-auto">Únete a la excelencia educativa en tecnología. Desarrolla tus habilidades con los mejores profesionales y tecnología de vanguardia.</p>
             <!-- BOTONES ACTUALIZADOS -->
@@ -50,6 +62,10 @@
                 <a href="carreras.html" target="_blank" class="bg-yellow-500 text-blue-900 px-8 py-3 rounded-full font-bold hover:bg-yellow-400 transition duration-300">Ver Carreras</a>
                 <a href="#contacto" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-blue-900 transition duration-300">Contactar</a>
             </div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Nuestras Carreras</h1>
+            <p>Descubre tu futuro profesional con nuestros programas de excelencia</p>
         </div>
     </section>
 
@@ -61,16 +77,10 @@
                     <div class="text-4xl font-bold mb-2">500+</div>
                     <div class="text-xl">Estudiantes Graduados</div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">95%</span>
-                    <span class="stat-label">Empleabilidad</span>
                 <div>
                     <div class="text-4xl font-bold mb-2">95%</div>
                     <div class="text-xl">Tasa de Empleabilidad</div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">500+</span>
-                    <span class="stat-label">Graduados</span>
                 <div>
                     <div class="text-4xl font-bold mb-2">25+</div>
                     <div class="text-xl">Años de Experiencia</div>
@@ -79,28 +89,19 @@
                     <div class="text-4xl font-bold mb-2">6</div>
                     <div class="text-xl">Carreras Técnicas</div>
                 </div>
+    <!-- Sección de Carreras -->
+    <section class="careers-container">
+        <div class="container">
+            <div class="careers-title">
+                <h2>Programas Académicos</h2>
+                <p>Ofrecemos carreras técnicas de vanguardia diseñadas para formar profesionales competitivos en el mercado laboral actual.</p>
             </div>
         </div>
     </section>
 
-    <!-- Sección de Carreras -->
-    <section class="careers-container">
     <!-- About Section -->
     <section id="nosotros" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="careers-title">
-                <h2>Programas Académicos</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    Ofrecemos carreras técnicas de vanguardia diseñadas para formar profesionales competitivos en el mercado laboral actual.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Carrera 1: Desarrollo de Software -->
-                <div class="card-hover">
-                    <div class="program-card-bg">
-                        <div class="career-icon">
-                            <i class="fas fa-code"></i>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                     <img src="https://i.postimg.cc/90ZwGWYJ/487980805-2698878613834013-1754575642248618034-n.jpg" alt="Instituto" class="rounded-lg shadow-lg w-full">
@@ -121,14 +122,6 @@
                                 <p class="text-gray-600">Programas académicos actualizados y certificados por organismos nacionales.</p>
                             </div>
                         </div>
-                        <h3 class="text-2xl font-bold text-white text-center">Desarrollo de Software</h3>
-                        <div class="popular-badge">Popular</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="career-tags">
-                            <span class="career-tag">3 años</span>
-                            <span class="career-tag">Presencial</span>
-                            <span class="career-tag">Técnico</span>
                         <div class="flex items-start">
                             <div class="bg-blue-100 p-2 rounded-full mr-4">
                                 <i class="fas fa-users text-blue-900"></i>
@@ -147,11 +140,17 @@
                                 <p class="text-gray-600">Laboratorios equipados con la última tecnología para un aprendizaje práctico.</p>
                             </div>
                         </div>
+            
+            <div class="grid">
+                <!-- Carrera 1: Desarrollo de Software -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <h3>Desarrollo de Software</h3>
+                    </div>
+                    <div class="card-content">
                         <p>Forma profesionales capaces de diseñar, desarrollar y mantener aplicaciones de software utilizando las últimas tecnologías y metodologías de desarrollo.</p>
-                        <a href="#" class="career-link">
-                            Más información
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">Más información <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -165,11 +164,6 @@
     La sección de carreras que estaba aquí ha sido movida a carreras.html
     -->
 
-                <!-- Carrera 2: Redes y Telecomunicaciones -->
-                <div class="card-hover">
-                    <div class="program-card-bg">
-                        <div class="career-icon">
-                            <i class="fas fa-network-wired"></i>
     <!-- Contact Section -->
     <section id="contacto" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
@@ -187,61 +181,23 @@
                             <i class="fas fa-map-marker-alt text-blue-900 text-xl mr-4"></i>
                             <span>Av. Tecnológica 123, Ciudad Universitaria</span>
                         </div>
-                        <h3 class="text-2xl font-bold text-white text-center">Redes y Telecomunicaciones</h3>
-                    </div>
-                    <div class="card-content">
-                        <div class="career-tags">
-                            <span class="career-tag">3 años</span>
-                            <span class="career-tag">Presencial</span>
-                            <span class="career-tag">Técnico</span>
                         <div class="flex items-center">
                             <i class="fas fa-phone text-blue-900 text-xl mr-4"></i>
                             <span>+1 (555) 123-4567</span>
                         </div>
-                        <p>Especialízate en el diseño, implementación y administración de redes de comunicación y sistemas de telecomunicaciones modernos.</p>
-                        <a href="#" class="career-link">
-                            Más información
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Carrera 3: Electrónica Industrial -->
-                <div class="card-hover">
-                    <div class="program-card-bg">
-                        <div class="career-icon">
-                            <i class="fas fa-microchip"></i>
                         <div class="flex items-center">
                             <i class="fas fa-envelope text-blue-900 text-xl mr-4"></i>
                             <span>info@instituto.edu</span>
                         </div>
-                        <h3 class="text-2xl font-bold text-white text-center">Electrónica Industrial</h3>
-                    </div>
-                    <div class="card-content">
-                        <div class="career-tags">
-                            <span class="career-tag">3 años</span>
-                            <span class="career-tag">Presencial</span>
-                            <span class="career-tag">Técnico</span>
                         <div class="flex items-center">
                             <i class="fas fa-clock text-blue-900 text-xl mr-4"></i>
                             <span>Lun - Vie: 8:00 AM - 6:00 PM</span>
                         </div>
-                        <p>Aprende a diseñar, instalar y mantener sistemas electrónicos industriales, automatización y control de procesos productivos.</p>
-                        <a href="#" class="career-link">
-                            Más información
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Carrera 4: Administración de Empresas -->
+                <!-- Carrera 2: Redes y Telecomunicaciones -->
                 <div class="card-hover">
                     <div class="program-card-bg">
-                        <div class="career-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white text-center">Administración de Empresas</h3>
-                        <div class="popular-badge">Demandada</div>
+                        <h3>Redes y Telecomunicaciones</h3>
+                    </div>
                     
                     <!-- Botón para Examen de Admisión -->
                     <div class="mt-8">
@@ -249,12 +205,11 @@
                             <i class="fas fa-clipboard-check mr-2"></i>
                             Realizar Examen de Admisión
                         </button>
-                    </div>
                     <div class="card-content">
-                        <div class="career-tags">
-                            <span class="career-tag">3 años</span>
-                            <span class="career-tag">Presencial</span>
-                            <span class="career-tag">Técnico</span>
+                        <p>Especialízate en el diseño, implementación y administración de redes de comunicación y sistemas de telecomunicaciones modernos.</p>
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
                 
                 <!-- Formulario de Contacto -->
@@ -264,12 +219,6 @@
                             <input type="text" placeholder="Nombre" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                             <input type="email" placeholder="Email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                         </div>
-                        <p>Desarrolla habilidades gerenciales y administrativas para liderar organizaciones y emprender proyectos empresariales exitosos.</p>
-                        <a href="#" class="career-link">
-                            Más información
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
                         <input type="tel" placeholder="Teléfono" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                         <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                             <option>Selecciona una carrera de interés</option>
@@ -290,25 +239,6 @@
         </div>
     </section>
 
-                <!-- Carrera 5: Contabilidad -->
-                <div class="card-hover">
-                    <div class="program-card-bg">
-                        <div class="career-icon">
-                            <i class="fas fa-calculator"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white text-center">Contabilidad</h3>
-                    </div>
-                    <div class="card-content">
-                        <div class="career-tags">
-                            <span class="career-tag">3 años</span>
-                            <span class="career-tag">Presencial</span>
-                            <span class="career-tag">Técnico</span>
-                        </div>
-                        <p>Conviértete en un experto en gestión financiera, auditoría y análisis contable con las herramientas más actuales del mercado.</p>
-                        <a href="#" class="career-link">
-                            Más información
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
     <!-- Modal del Examen de Admisión -->
     <div id="examModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
         <div class="exam-modal-content bg-white p-8 max-w-2xl w-full mx-4 max-h-96 overflow-y-auto">
@@ -333,28 +263,18 @@
                             <input type="radio" name="q1" value="c" class="mr-2">
                             <span>Emprender mi propio negocio</span>
                         </label>
+                <!-- Carrera 3: Electrónica Industrial -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <h3>Electrónica Industrial</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Aprende a diseñar, instalar y mantener sistemas electrónicos industriales, automatización y control de procesos productivos.</p>
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">Más información <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
-                <!-- Carrera 6: Mecánica Automotriz -->
-                <div class="card-hover">
-                    <div class="program-card-bg">
-                        <div class="career-icon">
-                            <i class="fas fa-car"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white text-center">Mecánica Automotriz</h3>
-                    </div>
-                    <div class="card-content">
-                        <div class="career-tags">
-                            <span class="career-tag">3 años</span>
-                            <span class="career-tag">Presencial</span>
-                            <span class="career-tag">Técnico</span>
-                        </div>
-                        <p>Especialízate en diagnóstico, reparación y mantenimiento de vehículos con tecnología de última generación.</p>
-                        <a href="#" class="career-link">
-                            Más información
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
                 <div class="exam-question">
                     <p class="font-semibold mb-3">2. ¿En qué área te sientes más cómodo trabajando?</p>
                     <div class="space-y-2">
@@ -370,41 +290,18 @@
                             <input type="radio" name="q2" value="c" class="mr-2">
                             <span>Mecánica y electrónica</span>
                         </label>
+                <!-- Carrera 4: Administración de Empresas -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <h3>Administración de Empresas</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Desarrolla habilidades gerenciales y administrativas para liderar organizaciones y emprender proyectos empresariales exitosos.</p>
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">Más información <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-            </div>
 
-            <!-- Sección de Beneficios -->
-            <div class="benefits-section">
-                <h3>¿Por qué estudiar con nosotros?</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h4>Educación de Calidad</h4>
-                        <p>Programas académicos actualizados y certificados</p>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h4>Docentes Expertos</h4>
-                        <p>Profesionales con amplia experiencia en el sector</p>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-laptop"></i>
-                        </div>
-                        <h4>Tecnología Moderna</h4>
-                        <p>Laboratorios equipados con última tecnología</p>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <h4>Inserción Laboral</h4>
-                        <p>Convenios con empresas para prácticas profesionales</p>
                 <div class="exam-question">
                     <p class="font-semibold mb-3">3. ¿Cuál consideras tu mayor fortaleza?</p>
                     <div class="space-y-2">
@@ -420,19 +317,18 @@
                             <input type="radio" name="q3" value="c" class="mr-2">
                             <span>Creatividad e innovación</span>
                         </label>
+                <!-- Carrera 5: Contabilidad -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <h3>Contabilidad</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Conviértete en un experto en gestión financiera, auditoría y análisis contable con las herramientas más actuales del mercado.</p>
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">Más información <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-            </div>
 
-            <!-- Call to Action -->
-            <div class="cta-section">
-                <h3>¿Listo para comenzar tu futuro?</h3>
-                <p>Inscríbete ahora y forma parte de la próxima generación de profesionales técnicos</p>
-                <div class="cta-buttons">
-                    <a href="index.html#contacto" class="btn-primary">Inscríbete Ahora</a>
-                    <a href="#" class="btn-secondary">Descargar Brochure</a>
-                </div>
-            </div>
                 <button type="submit" class="w-full bg-blue-900 text-white py-3 rounded-lg font-bold hover:bg-blue-800 transition duration-300 mt-6">
                     Enviar Examen
                 </button>
@@ -440,12 +336,12 @@
 
             <div id="examResult" class="exam-result"></div>
         </div>
-    </section>
     </div>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
-@@ -255,38 +273,96 @@ <h3>¿Listo para comenzar tu futuro?</h3>
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <h3 class="text-xl font-bold mb-4">Instituto Tecnológico Superior</h3>
                     <p class="text-gray-400">Formando profesionales técnicos de excelencia desde 1995.</p>
@@ -462,29 +358,41 @@
                         <a href="#" class="bg-gray-700 p-2 rounded-full hover:bg-blue-900 transition duration-300">
                             <i class="fab fa-linkedin"></i>
                         </a>
+                <!-- Carrera 6: Mecánica Automotriz -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <h3>Mecánica Automotriz</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Especialízate en diagnóstico, reparación y mantenimiento de vehículos con tecnología de última generación.</p>
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">Más información <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Enlaces Rápidos</h4>
                     <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white">Inicio</a></li>
-                        <li><a href="index.html#nosotros" class="text-gray-400 hover:text-white">Nosotros</a></li>
-                        <li><a href="carreras.html" class="text-gray-400 hover:text-white">Carreras</a></li>
-                        <li><a href="index.html#contacto" class="text-gray-400 hover:text-white">Contacto</a></li>
                         <li><a href="#inicio" class="text-gray-400 hover:text-white">Inicio</a></li>
                         <li><a href="#nosotros" class="text-gray-400 hover:text-white">Nosotros</a></li>
                         <!-- ENLACE CARRERAS ACTUALIZADO EN FOOTER -->
                         <li><a href="carreras.html" target="_blank" class="text-gray-400 hover:text-white">Carreras</a></li>
                         <li><a href="#contacto" class="text-gray-400 hover:text-white">Contacto</a></li>
                     </ul>
+
+                <!-- Carrera 7: Enfermería -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <h3>Enfermería</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Forma profesionales de la salud comprometidos con el cuidado integral del paciente, utilizando técnicas modernas de atención médica.</p>
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Contacto</h4>
                     <h4 class="text-lg font-semibold mb-4">Carreras</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><i class="fas fa-phone mr-2"></i> +1 234 567 8900</li>
-                        <li><i class="fas fa-envelope mr-2"></i> info@instituto.edu</li>
-                        <li><i class="fas fa-map-marker-alt mr-2"></i> Av. Educación 123, Ciudad</li>
                         <li>Desarrollo de Software</li>
                         <li>Redes y Telecomunicaciones</li>
                         <li>Electrónica Industrial</li>
@@ -492,21 +400,36 @@
                         <li>Contabilidad</li>
                         <li>Mecánica Automotriz</li>
                     </ul>
+
+                <!-- Carrera 8: Gastronomía -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <h3>Gastronomía</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Desarrolla tu creatividad culinaria y aprende técnicas gastronómicas nacionales e internacionales para destacar en la industria alimentaria.</p>
+                        <p class="career-card-duration">Duración: 2.5 años</p>
+                        <a href="#" class="career-card-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Síguenos</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin text-xl"></i></a>
-                    </div>
                     <h4 class="text-lg font-semibold mb-4">Contacto</h4>
                     <ul class="space-y-2 text-gray-400">
                         <li><i class="fas fa-phone mr-2"></i> +1 (555) 123-4567</li>
                         <li><i class="fas fa-envelope mr-2"></i> info@instituto.edu</li>
                         <li><i class="fas fa-map-marker-alt mr-2"></i> Av. Tecnológica 123</li>
                     </ul>
+
+                <!-- Carrera 9: Diseño Gráfico -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <h3>Diseño Gráfico</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Combina creatividad y tecnología para crear soluciones visuales impactantes en medios digitales e impresos.</p>
+                        <p class="career-card-duration">Duración: 3 años</p>
+                        <a href="#" class="career-card-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
@@ -527,6 +450,7 @@
             document.getElementById('examForm').reset();
             document.getElementById('examResult').style.display = 'none';
         }
+    </section>
 
         document.getElementById('examForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -547,6 +471,12 @@
             resultDiv.className = 'exam-result exam-passed';
             resultDiv.innerHTML = '¡Felicitaciones! Has aprobado el examen de admisión. Te contactaremos pronto para continuar con el proceso de inscripción.';
         });
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Instituto Tecnológico Superior. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
         // Cerrar modal al hacer clic fuera
         document.getElementById('examModal').addEventListener('click', function(e) {
@@ -555,5 +485,6 @@
             }
         });
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
 </body>
 </html>
