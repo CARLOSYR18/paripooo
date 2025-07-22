@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carreras - Instituto Tecnológico Superior</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="carreras-estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <img src="https://i.postimg.cc/90ZwGWYJ/487980805-2698878613834013-1754575642248618034-n.jpg" alt="Logo" class="h-12 w-12 rounded-full">
+                    <div>
+                        <h1 class="text-2xl font-bold text-blue-900">Instituto Tecnológico Superior</h1>
+                        <p class="text-sm text-gray-600">Excelencia en Educación Técnica</p>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-900 transition duration-300">Inicio</a>
+                    <a href="index.html#nosotros" class="text-gray-700 hover:text-blue-900 transition duration-300">Nosotros</a>
+                    <a href="carreras.html" class="text-blue-900 font-bold">Carreras</a>
+                    <a href="index.html#contacto" class="text-gray-700 hover:text-blue-900 transition duration-300">Contacto</a>
+                </nav>
+                <button class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section para Carreras -->
+    <section class="careers-hero">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="hero-title">Nuestras Carreras</h1>
+            <p class="hero-subtitle">Descubre tu futuro profesional con nuestros programas de excelencia</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Carreras Disponibles</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">95%</span>
+                    <span class="stat-label">Empleabilidad</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Graduados</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Carreras -->
+    <section class="careers-container">
+        <div class="container mx-auto px-4">
+            <div class="careers-title">
+                <h2>Programas Académicos</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Ofrecemos carreras técnicas de vanguardia diseñadas para formar profesionales competitivos en el mercado laboral actual.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Carrera 1: Desarrollo de Software -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <div class="career-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white text-center">Desarrollo de Software</h3>
+                        <div class="popular-badge">Popular</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="career-tags">
+                            <span class="career-tag">3 años</span>
+                            <span class="career-tag">Presencial</span>
+                            <span class="career-tag">Técnico</span>
+                        </div>
+                        <p>Forma profesionales capaces de diseñar, desarrollar y mantener aplicaciones de software utilizando las últimas tecnologías y metodologías de desarrollo.</p>
+                        <a href="#" class="career-link">
+                            Más información
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Carrera 2: Redes y Telecomunicaciones -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <div class="career-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white text-center">Redes y Telecomunicaciones</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="career-tags">
+                            <span class="career-tag">3 años</span>
+                            <span class="career-tag">Presencial</span>
+                            <span class="career-tag">Técnico</span>
+                        </div>
+                        <p>Especialízate en el diseño, implementación y administración de redes de comunicación y sistemas de telecomunicaciones modernos.</p>
+                        <a href="#" class="career-link">
+                            Más información
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Carrera 3: Electrónica Industrial -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <div class="career-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white text-center">Electrónica Industrial</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="career-tags">
+                            <span class="career-tag">3 años</span>
+                            <span class="career-tag">Presencial</span>
+                            <span class="career-tag">Técnico</span>
+                        </div>
+                        <p>Aprende a diseñar, instalar y mantener sistemas electrónicos industriales, automatización y control de procesos productivos.</p>
+                        <a href="#" class="career-link">
+                            Más información
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Carrera 4: Administración de Empresas -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <div class="career-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white text-center">Administración de Empresas</h3>
+                        <div class="popular-badge">Demandada</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="career-tags">
+                            <span class="career-tag">3 años</span>
+                            <span class="career-tag">Presencial</span>
+                            <span class="career-tag">Técnico</span>
+                        </div>
+                        <p>Desarrolla habilidades gerenciales y administrativas para liderar organizaciones y emprender proyectos empresariales exitosos.</p>
+                        <a href="#" class="career-link">
+                            Más información
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Carrera 5: Contabilidad -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <div class="career-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white text-center">Contabilidad</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="career-tags">
+                            <span class="career-tag">3 años</span>
+                            <span class="career-tag">Presencial</span>
+                            <span class="career-tag">Técnico</span>
+                        </div>
+                        <p>Conviértete en un experto en gestión financiera, auditoría y análisis contable con las herramientas más actuales del mercado.</p>
+                        <a href="#" class="career-link">
+                            Más información
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Carrera 6: Mecánica Automotriz -->
+                <div class="card-hover">
+                    <div class="program-card-bg">
+                        <div class="career-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white text-center">Mecánica Automotriz</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="career-tags">
+                            <span class="career-tag">3 años</span>
+                            <span class="career-tag">Presencial</span>
+                            <span class="career-tag">Técnico</span>
+                        </div>
+                        <p>Especialízate en diagnóstico, reparación y mantenimiento de vehículos con tecnología de última generación.</p>
+                        <a href="#" class="career-link">
+                            Más información
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de Beneficios -->
+            <div class="benefits-section">
+                <h3>¿Por qué estudiar con nosotros?</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Educación de Calidad</h4>
+                        <p>Programas académicos actualizados y certificados</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Docentes Expertos</h4>
+                        <p>Profesionales con amplia experiencia en el sector</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h4>Tecnología Moderna</h4>
+                        <p>Laboratorios equipados con última tecnología</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h4>Inserción Laboral</h4>
+                        <p>Convenios con empresas para prácticas profesionales</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h3>¿Listo para comenzar tu futuro?</h3>
+                <p>Inscríbete ahora y forma parte de la próxima generación de profesionales técnicos</p>
+                <div class="cta-buttons">
+                    <a href="index.html#contacto" class="btn-primary">Inscríbete Ahora</a>
+                    <a href="#" class="btn-secondary">Descargar Brochure</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Instituto Tecnológico Superior</h3>
+                    <p class="text-gray-400">Formando profesionales técnicos de excelencia desde 1995.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Inicio</a></li>
+                        <li><a href="index.html#nosotros" class="text-gray-400 hover:text-white">Nosotros</a></li>
+                        <li><a href="carreras.html" class="text-gray-400 hover:text-white">Carreras</a></li>
+                        <li><a href="index.html#contacto" class="text-gray-400 hover:text-white">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contacto</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-phone mr-2"></i> +1 234 567 8900</li>
+                        <li><i class="fas fa-envelope mr-2"></i> info@instituto.edu</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> Av. Educación 123, Ciudad</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Síguenos</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Instituto Tecnológico Superior. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
